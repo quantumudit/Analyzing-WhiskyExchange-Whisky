@@ -2,7 +2,7 @@
 
 ---
 
-<h4 align="center">Scraping & Analyzing Japanese whisky from <a href="https://www.thewhiskyexchange.com/c/35/japanese-whisky" target="_blank">The Whisky Exchange</a> website with <a href="https://www.beerwulf.com/en-gb/c/all-beers" target="_blank">Python</a> and <a href="https://en.wikipedia.org/wiki/Microsoft_Power_BI" target="_blank">Power BI</a></h4>
+<h4 align="center">Scraping & Analyzing Japanese whisky from <a href="https://www.thewhiskyexchange.com/c/35/japanese-whisky" target="_blank">The Whisky Exchange</a> website with <a href="https://en.wikipedia.org/wiki/Python_(programming_language)" target="_blank">Python</a> and <a href="https://en.wikipedia.org/wiki/Microsoft_Power_BI" target="_blank">Power BI</a></h4>
 
 <p align='center'>
 <img src='06_RESOURCES/built-with-love.svg'>
@@ -13,6 +13,7 @@
 <p align="center">
   <a href="#overview">Overview</a> •
   <a href="#prerequisites">Prerequisites</a> •
+  <a href="#architecture">Architecture</a> •
   <a href="#demo">Demo</a> •
   <a href="#support">Support</a> •
   <a href="#license">License</a>
@@ -20,11 +21,11 @@
 
 ## Overview
 
-This project focuses on scraping games and their associated metrics from [The Whisky Exchange - Japanese Whisky](https://www.thewhiskyexchange.com/c/35/japanese-whisky), performing exploratory data analysis to generate insights and visualize them with the help of Power BI.
+This project focuses on scraping games and their associated metrics from [The Whisky Exchange - Japanese Whisky][website_link], performing exploratory data analysis to generate insights and visualize them with the help of Power BI.
 
 The repository directory structure is as follows:
 
-├───Analyzing-Pokemons<br>
+├───Analyzing-WhiskyExchange-Whisky<br>
 │ ├───01_WEBSCRAPING<br>
 │ ├───02_ETL<br>
 │ └───06_RESOURCES<br>
@@ -74,15 +75,29 @@ In order to complete the project, I've used the following applications and libra
 
 > The choice of applications & their installation might vary based on individual preferences & system settings.
 
+## Architecture
+
+The project architecture is quite straight forward and can be explained through the below image:
+
+![Process Architecture][process_workflow]
+
+As per the above workflow suggests; we are first scraping the data from the website using the Python script and collecting the same in a flat file which is then processed and cleaned with another ETL specific Python script.
+
+Finally; we leverage the clean & analysis-ready dataset for some exploratory data analysis (EDA) using Jupyter Notebook and creating an insightful report using Power BI
+
 ## Demo
 
-It will contain the architecture and gif of code execution and report with explanation.
+The below graphic shows scraping of data from the website:
+
+![Scraping Graphic][scraping_graphic]
+
+From this graphic we can observe a significant reduce in the time of scraping due to the use of multi-threading.
 
 ## Support
 
 If you have any doubts, queries or, suggestions then, please connect with me in any of the following platforms:
 
-[![Linkedin Badge][linkedinbadge]][linkedin] [![Twitter Badge](https://img.shields.io/badge/-@quantumudit-1ca0f1?style=flat&labelColor=1ca0f1&logo=twitter&logoColor=white&link=https://twitter.com/quantumudit)][twitter] [![Skype Badge](https://img.shields.io/badge/-quantumudit-00AFF0?style=flat&labelColor=00AFF0b&logo=skype&logoColor=white)][skype] [![YouTube Badge](https://img.shields.io/badge/-quantumdata-e74c3c?style=flat&labelColor=e74c3c&logo=youtube&logoColor=white)][youtube] [![Mail Badge](https://img.shields.io/badge/-quantumudit@gmail.com-c0392b?style=flat&labelColor=c0392b&logo=gmail&logoColor=white)][gmail]
+[![Linkedin Badge][linkedinbadge]][linkedin] [![Twitter Badge][twitterbadge]][twitter]
 
 If you like my work then, you may support me at Patreon:
 
@@ -100,31 +115,20 @@ This license allows reusers to distribute, remix, adapt, and build upon the mate
 
 <!-- Image Links -->
 
-[project_logo]: 06_RESOURCES/japanese_whisky_analysis_logo.png
-[build_with]: 06_RESOURCES/built-with-love.svg
-[powered_by]: 06_RESOURCES/powered-by-coffee.svg
-[license_logo]: 06_RESOURCES/by-nc-sa.png
+[project_logo]: 06_RESOURCES/project_cover_image.png
+[process_workflow]: 06_RESOURCES/process_architecture.png
+[scraping_graphic]: 06_RESOURCES/scraping_graphic.gif
 
 <!-- External Links -->
 
-[by_nc_sa_license]: https://creativecommons.org/licenses/by-nc-sa/4.0/
-[about_python]: https://en.wikipedia.org/wiki/Python_(programming_language)
-[about_power_bi]: https://en.wikipedia.org/wiki/Microsoft_Power_BI
-[patreon_link]: 06_RESOURCES/become_a_patreon.png
+[website_link]: https://www.thewhiskyexchange.com/c/35/japanese-whisky
 
 <!-- Profile Links -->
 
 [linkedin]: https://www.linkedin.com/in/uditkumarchatterjee/
 [twitter]: https://twitter.com/quantumudit
-[data.world]: https://data.world/dataman-udit
-[youtube]: https://www.youtube.com/channel/UCKS7gum4_d3zFOFgdL2uLdA
-[gmail]: mailto:quantumudit@gmail.com
-[skype]: skype:quantumudit?call
 
 <!-- Shields Profile Links -->
 
 [linkedinbadge]: https://img.shields.io/badge/-uditkumarchatterjee-0e76a8?style=flat&labelColor=0e76a8&logo=linkedin&logoColor=white
 [twitterbadge]: https://img.shields.io/badge/-@quantumudit-1ca0f1?style=flat&labelColor=1ca0f1&logo=twitter&logoColor=white&link=https://twitter.com/quantumudit
-[skypebadge]: https://img.shields.io/badge/-quantumudit-00AFF0?style=flat&labelColor=00AFF0b&logo=skype&logoColor=white
-[gmailbadge]: https://img.shields.io/badge/-quantumudit-c0392b?style=flat&labelColor=c0392b&logo=gmail&logoColor=white
-[youtubebadge]: https://img.shields.io/badge/-quantumdata-e74c3c?style=flat&labelColor=e74c3c&logo=youtube&logoColor=white
