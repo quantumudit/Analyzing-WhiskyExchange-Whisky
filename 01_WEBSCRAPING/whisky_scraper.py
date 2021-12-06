@@ -1,8 +1,7 @@
 import pandas as pd
-import datetime
 import pyfiglet
 from concurrent.futures import ThreadPoolExecutor
-from fx_whiskyexchange_jap_whisky_scraper_template import *
+from fx_whisky_scraper_template import *
 
 def extract_all_product_links() -> None:
     """
@@ -12,7 +11,7 @@ def extract_all_product_links() -> None:
     with ThreadPoolExecutor() as executor:
         executor.map(scrape_product_links, all_page_links)
     return
-    
+
 def scrape_all_product_details() -> None:
     """
     This function loops through all the individual whisky links and scrapes the details; that are get added to 'all_whisky' list
@@ -28,14 +27,14 @@ def load_data() -> None:
     """
     
     whisky_df = pd.DataFrame(all_whisky)
-    whisky_df.to_csv('whiskyexchange_japanese_whisky_data.csv', index=False)
+    whisky_df.to_csv('japanese_whisky_raw_data.csv', encoding='utf-8', index=False)
 
 if __name__ == '__main__':
     
     scraper_title = "THE WHISKY EXCHANGE - JAPANESE WHISKY COLLECTOR"
     ascii_art_title = pyfiglet.figlet_format(scraper_title, font='small')
     
-    start_time = datetime.datetime.now()
+    start_time = datetime.now()
     
     print('\n\n')
     print(ascii_art_title)
@@ -43,7 +42,7 @@ if __name__ == '__main__':
     
     generate_page_links()
     
-    print(f'Total Pages to scrape:{len(all_page_links)}')
+    print(f'Total Pages to scrape: {len(all_page_links)}')
     print('Gathering all whisky links to scrape...')
     
     extract_all_product_links()
@@ -54,7 +53,7 @@ if __name__ == '__main__':
     
     scrape_all_product_details()
     
-    end_time = datetime.datetime.now()
+    end_time = datetime.now()
     scraping_time = end_time - start_time
     
     print('\n')
@@ -67,5 +66,4 @@ if __name__ == '__main__':
     load_data()
     
     print('Data Exported to CSV...')
-    print('Webscraping completed !!!')
-
+    print('Webscraping Completed !!!')
